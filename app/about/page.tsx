@@ -97,7 +97,7 @@ export default function AboutPage() {
               </p>
               <p className="text-base text-slate-400 leading-relaxed mb-8">
                 I&apos;ve spent the last 6+ years turning complex problems into clean,
-                scalable software — from AI-powered analytics dashboards to fintech
+                scalable software from AI-powered analytics dashboards to fintech
                 mobile apps and headless CMS platforms. I care deeply about code
                 quality, user experience, and shipping things that actually work in
                 production.
@@ -115,13 +115,12 @@ export default function AboutPage() {
                 >
                   <Mail size={15} /> Get in Touch
                 </Link>
-                <a
+                <Link
                   href={siteOwner.cvUrl}
-                  download
                   className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold px-6 py-3 rounded-xl border border-slate-200 hover:border-blue-300 transition-colors"
                 >
                   <Download size={15} /> Download CV
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -138,6 +137,7 @@ export default function AboutPage() {
                     src={siteOwner.profileImage}
                     alt={siteOwner.name}
                     fill
+                    sizes="(max-width: 768px) 80vw, 320px"
                     className="object-cover object-top relative z-10"
                     priority
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}

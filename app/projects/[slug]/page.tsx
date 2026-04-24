@@ -136,6 +136,24 @@ export default async function ProjectPage({
                     <ExternalLink size={14} /> View Live Site
                   </a>
                 )}
+                {project.figmaUrl && (
+                  <a
+                    href={project.figmaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-[#1e1e1e] hover:bg-[#0d99ff] text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-md"
+                  >
+                    {/* Figma logo */}
+                    <svg width="14" height="14" viewBox="0 0 38 57" fill="none" aria-hidden="true">
+                      <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="currentColor"/>
+                      <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 0 1-19 0z" fill="currentColor"/>
+                      <path d="M19 0v19h9.5a9.5 9.5 0 0 0 0-19H19z" fill="currentColor"/>
+                      <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="currentColor"/>
+                      <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="currentColor"/>
+                    </svg>
+                    View in Figma
+                  </a>
+                )}
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}
@@ -157,6 +175,7 @@ export default async function ProjectPage({
                   src={coverUrl}
                   alt={`${project.title} screenshot`}
                   initials={project.title.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+                  figmaUrl={project.figmaUrl}
                 />
               </div>
             </div>
@@ -217,10 +236,34 @@ export default async function ProjectPage({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {project.images.map((img, i) => (
                 <div key={i} className="relative aspect-video rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
-                  <Image src={img} alt={`${project.title} screenshot ${i + 1}`} fill className="object-cover object-top" />
+                  <Image src={img} alt={`${project.title} screenshot ${i + 1}`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-top" />
                 </div>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Figma prototype embed */}
+        {project.figmaUrl && (
+          <div className="mb-16">
+            <p className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-[0.12em] mb-6">
+              <span className="w-6 h-px bg-blue-600 inline-block" />
+              {project.liveUrl ? "Design Prototype" : "Design Preview"}
+            </p>
+            <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50" style={{ height: "700px" }}>
+              <iframe
+                src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(project.figmaUrl)}`}
+                className="w-full h-full"
+                allowFullScreen
+                title={`${project.title} Figma design`}
+              />
+            </div>
+            <p className="text-xs text-slate-400 mt-3 text-center">
+              Can&apos;t see the embed?{" "}
+              <a href={project.figmaUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                Open directly in Figma ↗
+              </a>
+            </p>
           </div>
         )}
       </section>

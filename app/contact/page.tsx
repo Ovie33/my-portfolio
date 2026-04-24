@@ -177,7 +177,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-lg text-slate-500 leading-relaxed">
               Whether it&apos;s a new project, a freelance opportunity, or just a
-              conversation — I&apos;m always happy to connect. Fill in the form or
+              conversation I&apos;m always happy to connect. Fill in the form or
               reach out directly.
             </p>
           </div>
@@ -195,7 +195,7 @@ export default function ContactPage() {
                 <CheckCircle size={52} className="text-green-500" />
                 <h2 className="text-2xl font-extrabold text-slate-900">Message sent!</h2>
                 <p className="text-slate-500 max-w-sm">
-                  Thanks for reaching out. Your default email client should have opened — I&apos;ll
+                  Thanks for reaching out. Your default email client should have opened I&apos;ll
                   get back to you as soon as possible.
                 </p>
                 <button

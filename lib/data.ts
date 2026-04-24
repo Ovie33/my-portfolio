@@ -33,7 +33,7 @@ export const siteOwner = {
     tagline: "Full-Stack Engineer · 6+ Years · Nigeria & Remote",
     bio: "I build scalable, production-ready applications with clean architecture and a sharp focus on performance, automation, and great UX. Based in Nigeria, working globally.",
     email: "obukohwooviemo33@gmail.com",
-    cvUrl: "/cv.pdf",
+    cvUrl: "/resume",
     available: true,
     profileImage: "/profile.jpeg",
 };
@@ -95,50 +95,12 @@ export const experiences: Experience[] = [
 export const projects: Project[] = [
     {
         id: 1,
-        slug: "seo-analytics-dashboard",
-        title: "SEO Analytics Dashboard",
-        tagline: "Real-time SEO insights powered by AI reporting",
-        category: "Dashboard",
-        year: "2025",
-        coverImage: "/projects/seo-dashboard.png",
-        tech: ["React", "Node.js", "TypeScript", "OpenAI API"],
-        liveUrl: "https://calarax.com",
-        overview:
-            "A production-grade SEO analytics platform delivering real-time insights to 200+ active users, with AI-generated weekly reports that cut manual analytics work by 80%.",
-        challenge:
-            "The client needed to replace a brittle spreadsheet workflow with a live dashboard that could ingest data from multiple sources and surface actionable insights without requiring manual analysis.",
-        solution:
-            "Built a React + Node.js dashboard backed by a Python data pipeline. Integrated OpenAI GPT-4 to auto-generate narrative reports from raw metrics. Deployed on AWS with a PostgreSQL data warehouse.",
-        outcome:
-            "200+ active users onboarded within 3 months. Manual reporting time reduced from 4 hours/week to under 30 minutes. Client renewed contract for a second phase.",
-        images: ["/projects/seo-dashboard-2.png"],
-    },
-    {
-        id: 2,
-        slug: "finazb-mobile-app",
-        title: "FinazB",
-        tagline: "Fintech mobile app for peer-to-peer payments and budgeting",
-        category: "Fintech",
-        year: "2024",
-        coverImage: "",
-        tech: ["React Native", "Node.js", "Supabase", "REST APIs", "Zustand"],
-        overview:
-            "FinazB is a cross-platform fintech mobile application built to serve underbanked users in Nigeria. It enables peer-to-peer payments, real-time budget tracking, and detailed spending analytics — all from a lightweight, offline-capable app optimised for low-end Android devices.",
-        challenge:
-            "The target users relied on entry-level Android hardware with inconsistent internet connectivity. The app needed to handle real-time transaction data reliably while remaining fast, accessible, and easy to use for people with limited smartphone experience.",
-        solution:
-            "Built with React Native and Zustand for lightweight global state management. Optimised list rendering using FlashList and implemented an offline-first data sync layer backed by Supabase. A clean, high-contrast UI was designed from scratch to maximise usability on small screens.",
-        outcome:
-            "Launched on Android with strong early retention figures. The app consistently maintained 60fps performance on mid-range devices. The project also underpinned a training programme that mentored 100+ student developers in React Native fundamentals.",
-    },
-    {
-        id: 3,
         slug: "shopfeedme",
         title: "ShopFeedMe",
         tagline: "Full-featured e-commerce platform built with Next.js",
         category: "E-Commerce",
         year: "2024",
-        coverImage: "/projects/shopfeedme.png",
+        coverImage: "",
         tech: ["Next.js", "Tailwind CSS", "TypeScript", "REST APIs"],
         liveUrl: "https://www.shopfeedme.com",
         overview:
@@ -151,13 +113,13 @@ export const projects: Project[] = [
             "Delivered a polished, fully responsive storefront live at shopfeedme.com. The component-driven architecture significantly reduced development time for new feature additions.",
     },
     {
-        id: 4,
+        id: 2,
         slug: "yano-schools",
         title: "Yano Schools",
         tagline: "EdTech platform connecting schools, students, and parents",
         category: "EdTech",
         year: "2024",
-        coverImage: "/projects/yanoschools.png",
+        coverImage: "",
         tech: ["React", "Next.js", "Tailwind CSS", "REST APIs"],
         liveUrl: "https://www.yanoschools.com",
         overview:
@@ -170,13 +132,48 @@ export const projects: Project[] = [
             "A live, functional platform serving schools across Nigeria, available at yanoschools.com. The clean, intuitive interface has reduced onboarding friction for both institutional and individual users.",
     },
     {
+        id: 3,
+        slug: "apple-home-page-clone",
+        title: "Apple home page clone",
+        tagline: "clone of the Apple home page with all its features and animations",
+        category: "Landing Page",
+        year: "2023",
+        coverImage: "",
+        tech: ["React"],
+        liveUrl: "https://applehome.vercel.app/",
+        overview: "This is a clone of the Apple home page with all its features and animations.",
+        challenge: "I wanted to build a clone of the Apple home page with all its features and animations.",
+        solution: "I tried my best to build a clone of the Apple home page with all its features and animations using React.",
+        outcome:
+            "I was able to successfully replicate the Apple home page with all its features and animations.",
+    },
+    {
+        id: 4,
+        slug: "conversion-landing-page",
+        title: "Conversional Landing page for Booking Calls with Experts",
+        tagline: "Conversion Landing page for Booking Calls with Experts",
+        category: "Landing Page",
+        year: "2025",
+        coverImage: "",
+        tech: ["React", "Tailwind CSS"],
+        liveUrl: "https://landing-page-six-sigma-83.vercel.app/",
+        overview: "A demo conversion landing page made to test my skill with AI assistance and designs for quicker and swifter deliveries.",
+        challenge:
+            "To build a high converting landing page.",
+        solution:
+            "Built with React and Tailwind CSS.",
+        outcome:
+            "A live, functional Conversion Landing page that helps businesses book more calls and clients.",
+    },
+
+    {
         id: 5,
         slug: "fixfinder",
         title: "FixFinder",
         tagline: "Connecting users with verified local artisans in real time",
         category: "Platform",
         year: "2024",
-        coverImage: "/projects/fixfinder.png",
+        coverImage: "",
         tech: ["MongoDB", "Express.js", "React", "Node.js", "Socket.io", "Face API"],
         liveUrl: "https://fixfinder-cyan.vercel.app",
         overview:
@@ -190,21 +187,41 @@ export const projects: Project[] = [
     },
     {
         id: 6,
-        slug: "freelance-portfolio-cms",
-        title: "Client CMS Platform",
-        tagline: "Headless CMS and dashboard for small businesses",
+        slug: "iconiq-music-website",
+        title: "Iconiq Music Website",
+        tagline: "Music website for Iconiq Music",
         category: "Web App",
-        year: "2023",
-        coverImage: "/projects/cms.png",
-        tech: ["React", "Express.js", "Firebase", "PostgreSQL"],
+        year: "2026",
+        coverImage: "",
+        tech: ["Next.js", "Figma"],
+        liveUrl: "https://iconiq-music-website-steel.vercel.app/",
         overview:
-            "A custom headless CMS and admin dashboard built for a portfolio of small business clients, enabling non-technical owners to manage content, products, and analytics.",
+            "Iconiq Music website is a website built for Iconiq Music, a music company that provides music services to clients.",
         challenge:
-            "Clients had no technical staff and needed a dashboard so intuitive that zero training was required, while still supporting complex data relationships under the hood.",
+            "The client needed a website that was visually appealing and easy to navigate, while still being able to showcase their music and services.",
         solution:
-            "Designed a drag-and-drop page builder, a product catalogue manager, and a Firestore-backed real-time analytics panel, wrapped in a role-based permission system.",
+            "Designed and built a modern, visually appealing interface with smooth animations and intuitive navigation using Next.js and Figma.",
         outcome:
-            "Deployed for 5 clients. Average content update time dropped from 2 days (developer-assisted) to under 10 minutes self-served. User interaction up 35%.",
+            "Deployed for 1 client, with positive feedback from the client.",
+    },
+    {
+        id: 7,
+        slug: "uiux-designs",
+        title: "UI/UX Design Collection",
+        tagline: "High-fidelity UI/UX designs across 4 projects — built in Figma",
+        category: "UI/UX",
+        year: "2024–2025",
+        coverImage: "",
+        tech: ["Figma", "UI Design", "UX Research", "Prototyping"],
+        figmaUrl: "https://www.figma.com/design/1XruyZScpMaeDngrt42341/Figma-Projects?node-id=0-1&p=f&t=FcxvCQ3I2TJDOBND-0",
+        overview:
+            "A collection of 4 high-fidelity UI/UX design projects created in Figma, spanning mobile apps, web interfaces, and product design. Each design demonstrates a complete design process — from user flows and wireframes through to polished, developer-ready screens.",
+        challenge:
+            "Each project required translating complex user needs into clean, intuitive interfaces that developers could implement faithfully — balancing visual appeal with practical constraints like accessibility, responsiveness, and platform conventions.",
+        solution:
+            "Approached each project with a user-first design process: defining user flows, building low-fidelity wireframes, then iterating to high-fidelity screens with defined components, typography, spacing systems, and interactive prototypes.",
+        outcome:
+            "4 production-ready design systems and prototypes delivered to client and development teams. Projects are pending development and are available for review directly in Figma.",
     },
 ];
 

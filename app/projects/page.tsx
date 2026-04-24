@@ -24,14 +24,14 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 // ─── Category pill ────────────────────────────────────────────
 function CategoryBadge({ label }: { label: string }) {
   const colours: Record<string, string> = {
-    Dashboard:   "text-purple-700 bg-purple-50 border-purple-200",
-    Fintech:     "text-emerald-700 bg-emerald-50 border-emerald-200",
-    "Web App":   "text-blue-700 bg-blue-50 border-blue-200",
-    Mobile:      "text-orange-700 bg-orange-50 border-orange-200",
-    "E-Commerce":"text-pink-700 bg-pink-50 border-pink-200",
-    EdTech:      "text-sky-700 bg-sky-50 border-sky-200",
-    Platform:    "text-indigo-700 bg-indigo-50 border-indigo-200",
-    AI:          "text-violet-700 bg-violet-50 border-violet-200",
+    Dashboard: "text-purple-700 bg-purple-50 border-purple-200",
+    Fintech: "text-emerald-700 bg-emerald-50 border-emerald-200",
+    "Web App": "text-blue-700 bg-blue-50 border-blue-200",
+    Mobile: "text-orange-700 bg-orange-50 border-orange-200",
+    "E-Commerce": "text-pink-700 bg-pink-50 border-pink-200",
+    EdTech: "text-sky-700 bg-sky-50 border-sky-200",
+    Platform: "text-indigo-700 bg-indigo-50 border-indigo-200",
+    AI: "text-violet-700 bg-violet-50 border-violet-200",
   };
   return (
     <span className={`text-xs font-bold border px-3 py-1 rounded-full ${colours[label] ?? "text-slate-600 bg-slate-50 border-slate-200"}`}>
@@ -56,11 +56,25 @@ function ProjectCard({ project }: { project: Project }) {
             src={coverUrl}
             alt={project.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
             onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
           />
+        ) : project.figmaUrl ? (
+          /* Figma-branded cover for design-only projects */
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1e1e1e] via-[#2c2c54] to-[#0d99ff] flex flex-col items-center justify-center gap-3 group-hover:scale-105 transition-transform duration-500">
+            {/* Figma logo */}
+            <svg width="36" height="54" viewBox="0 0 38 57" fill="none" aria-hidden="true" className="drop-shadow-lg">
+              <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#0d99ff" />
+              <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 0 1-19 0z" fill="#a259ff" />
+              <path d="M19 0v19h9.5a9.5 9.5 0 0 0 0-19H19z" fill="#f24e1e" />
+              <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#ff7262" />
+              <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#1abcfe" />
+            </svg>
+            <span className="text-white/90 text-xs font-bold tracking-widest uppercase">Figma Designs</span>
+          </div>
         ) : (
-          /* No image — gradient placeholder with initials */
+          /* Generic placeholder */
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-4xl font-extrabold text-slate-300 select-none">
               {project.title.split(" ").map((w) => w[0]).join("").slice(0, 2)}
@@ -97,7 +111,7 @@ function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
         <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 group-hover:gap-3 transition-all">
-          View Case Study <ArrowRight size={14} />
+          {project.figmaUrl && !project.liveUrl ? "View Design" : "View Case Study"} <ArrowRight size={14} />
         </span>
       </div>
     </Link>
@@ -145,7 +159,7 @@ export default function ProjectsPage() {
               </span>
             </h1>
             <p className="text-lg text-slate-500 leading-relaxed">
-              A collection of production-grade work — from fintech mobile apps and AI dashboards to
+              A collection of production-grade work from fintech mobile apps and AI dashboards to
               e-commerce platforms and community tools. Each project is a real problem solved with
               real technology.
             </p>
@@ -162,11 +176,10 @@ export default function ProjectsPage() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`text-sm font-semibold px-4 py-2 rounded-xl border transition-all ${
-                active === cat
-                  ? "bg-slate-900 text-white border-slate-900"
-                  : "bg-white text-slate-600 border-slate-200 hover:border-blue-300 hover:text-blue-600"
-              }`}
+              className={`text-sm font-semibold px-4 py-2 rounded-xl border transition-all ${active === cat
+                ? "bg-slate-900 text-white border-slate-900"
+                : "bg-white text-slate-600 border-slate-200 hover:border-blue-300 hover:text-blue-600"
+                }`}
             >
               {cat}
               {cat !== "All" && (

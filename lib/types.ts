@@ -28,7 +28,9 @@ export type ProjectCategory =
     | "AI"
     | "E-Commerce"
     | "Platform"
-    | "EdTech";
+    | "EdTech"
+    | "Landing Page"
+    | "UI/UX"
 
 export type Project = {
     id: number;
@@ -41,6 +43,7 @@ export type Project = {
     tech: string[];
     liveUrl?: string;
     githubUrl?: string;
+    figmaUrl?: string;      // Figma prototype / design link
     // Case study fields (shown on /projects/[slug])
     overview: string;
     challenge: string;

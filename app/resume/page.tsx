@@ -1,8 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
-import { siteOwner, experiences, skills, education } from "@/lib/data";
+import { Mail, MapPin, Globe } from "lucide-react";
+import { siteOwner, experiences, education, projects } from "@/lib/data";
 
 
 // ─── Skill categories to show in sidebar ─────────────────────
@@ -131,7 +130,48 @@ export default function ResumePage() {
               </div>
             </section>
 
+            {/* SELECTED PROJECTS */}
+            <section className="mb-8">
+              <SectionHeading>Selected Projects</SectionHeading>
+              <div className="flex flex-col gap-5">
+                {projects.map((project) => (
+                  <div key={project.id}>
+                    <div className="flex items-start justify-between gap-4 mb-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <p className="text-[13px] font-bold text-slate-900">{project.title}</p>
+                        <span className="text-[10px] font-semibold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-md uppercase tracking-wide">
+                          {project.category}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3 shrink-0">
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[10.5px] text-blue-600 hover:underline print:underline whitespace-nowrap"
+                          >
+                            View Live ↗
+                          </a>
+                        )}
+                        <span className="text-[11px] font-medium text-slate-400 whitespace-nowrap">
+                          {project.year}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="text-[12px] text-slate-600 leading-relaxed mb-1.5">
+                      {project.outcome}
+                    </p>
+                    <p className="text-[10.5px] font-semibold text-slate-400 uppercase tracking-wider">
+                      {project.tech.join(" · ")}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
           </main>
+
 
           {/* ── SIDEBAR (right ~35%) ── */}
           <aside className="w-[260px] shrink-0 bg-slate-50 border-l border-slate-200 px-7 py-8 print:bg-white">

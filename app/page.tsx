@@ -9,6 +9,7 @@ import {
   projects,
   experiences,
   socialLinks,
+  getProjectCoverUrl,
 } from "@/lib/data";
 
 // ─── SVG icons ────────────────────────────────────────────────
@@ -36,6 +37,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 // ─── Project teaser card ──────────────────────────────────────
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+  const coverUrl = getProjectCoverUrl(project);
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -43,13 +45,34 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
     >
       {/* Cover */}
       <div className="relative w-full h-52 bg-gradient-to-br from-blue-50 to-slate-200 overflow-hidden shrink-0">
-        <Image
-          src={project.coverImage}
-          alt={project.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-        />
+        {coverUrl ? (
+          <Image
+            src={coverUrl}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+          />
+        ) : project.figmaUrl ? (
+          /* Figma-branded cover for design-only projects */
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1e1e1e] via-[#2c2c54] to-[#0d99ff] flex flex-col items-center justify-center gap-3 group-hover:scale-105 transition-transform duration-500">
+            <svg width="36" height="54" viewBox="0 0 38 57" fill="none" aria-hidden="true" className="drop-shadow-lg">
+              <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#0d99ff"/>
+              <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 0 1-19 0z" fill="#a259ff"/>
+              <path d="M19 0v19h9.5a9.5 9.5 0 0 0 0-19H19z" fill="#f24e1e"/>
+              <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#ff7262"/>
+              <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#1abcfe"/>
+            </svg>
+            <span className="text-white/90 text-xs font-bold tracking-widest uppercase">Figma Designs</span>
+          </div>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-4xl font-extrabold text-slate-300 select-none">
+              {project.title.split(" ").map((w) => w[0]).join("").slice(0, 2)}
+            </span>
+          </div>
+        )}
         <span className="absolute top-4 left-4 text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-3 py-1 rounded-full z-10">
           {project.category}
         </span>
@@ -79,7 +102,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
           )}
         </div>
         <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 group-hover:gap-3 transition-all">
-          View Case Study <ArrowRight size={14} />
+          {project.figmaUrl && !project.liveUrl ? "View Design" : "View Case Study"} <ArrowRight size={14} />
         </span>
       </div>
     </Link>
@@ -207,13 +230,12 @@ export default function HomePage() {
                 >
                   View My Work <ArrowRight size={16} />
                 </Link>
-                <a
+                <Link
                   href={siteOwner.cvUrl}
-                  download
                   className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold px-7 py-3.5 rounded-xl border border-slate-200 hover:border-blue-300 transition-colors"
                 >
                   <Download size={16} /> Download CV
-                </a>
+                </Link>
               </div>
 
               {/* Social icons */}
@@ -256,6 +278,7 @@ export default function HomePage() {
                     src={siteOwner.profileImage}
                     alt={`${siteOwner.name} — ${siteOwner.title}`}
                     fill
+                    sizes="320px"
                     className="object-cover object-top"
                     priority
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
