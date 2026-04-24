@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      // Microlink screenshot service — used for dynamic project cover images
+      { protocol: "https", hostname: "api.microlink.io" },
+    ],
+  },
 };
 
 export default nextConfig;
