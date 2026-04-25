@@ -283,23 +283,23 @@ export const testimonials: Testimonial[] = [
     {
         id: 1,
         quote:
-            "Oviemo delivered a dashboard that completely transformed how we handle reporting. The AI integration alone saved our team hours every week.",
-        name: "Client A",
-        title: "Product Manager, Calarax",
+            "Oviemo delivered stunning UI/UX designs for both my Resturant and also my Record label made it simple and clean and easy to use.",
+        name: "Robson Bassey",
+        title: "CEO of Yummy ville and iconic Records",
     },
     {
         id: 2,
         quote:
             "Working with Oviemo on FinazB was excellent. He understood the constraints of our user base and built something genuinely fast on low-end devices.",
-        name: "Client B",
+        name: "Mr Paul .A.",
         title: "CTO, Harvoxx Tech Hub",
     },
     {
         id: 3,
         quote:
-            "Our clients can now update their own sites without calling us. That's exactly what we asked for and Oviemo delivered it on time.",
-        name: "Client C",
-        title: "Agency Owner",
+            "Delivered a very high quality UI/UX design for our platform Freeman Firms. The design was stunning and user-friendly and it was dlivered on time.",
+        name: "Freeman",
+        title: "CEO Freeman Firms",
     },
 ];
 

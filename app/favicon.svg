@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Dark rounded background -->
+  <rect width="32" height="32" rx="7" fill="#0f172a"/>
+
+  <!-- Left "O" — drawn as a ring using two circles (filled circle with inner cutout via clip) -->
+  <!-- We use a bold rounded rect stroke approach instead -->
+
+  <!-- Left O: outer -->
+  <circle cx="10.5" cy="17" r="6" fill="none" stroke="#3b82f6" stroke-width="3"/>
+  <!-- Right O: outer -->
+  <circle cx="21.5" cy="17" r="6" fill="none" stroke="#3b82f6" stroke-width="3"/>
+
+  <!-- Clip both O's to stay inside the card -->
+  <!-- Blue accent dot top-right -->
+  <circle cx="27" cy="6" r="2.2" fill="#3b82f6"/>
+</svg>

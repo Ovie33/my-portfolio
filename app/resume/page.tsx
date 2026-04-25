@@ -56,14 +56,14 @@ export default function ResumePage() {
         style={{ fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
       >
         {/* ════ HEADER ════════════════════════════════════════ */}
-        <header className="px-12 py-10 border-b border-slate-200">
-          <h1 className="text-4xl font-black tracking-tight text-slate-900 uppercase mb-1">
+        <header className="px-6 md:px-12 py-8 md:py-10 border-b border-slate-200">
+          <h1 className="text-2xl md:text-4xl font-black tracking-tight text-slate-900 uppercase mb-1">
             {siteOwner.name}
           </h1>
-          <p className="text-sm font-semibold text-slate-500 uppercase tracking-[0.15em] mb-5">
+          <p className="text-xs md:text-sm font-semibold text-slate-500 uppercase tracking-[0.15em] mb-4">
             {siteOwner.title}
           </p>
-          <div className="flex flex-wrap gap-x-6 gap-y-1.5 text-xs text-slate-500">
+          <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-slate-500">
             <span className="flex items-center gap-1.5">
               <Mail size={11} className="text-slate-400" />
               {siteOwner.email}
@@ -83,11 +83,11 @@ export default function ResumePage() {
           </div>
         </header>
 
-        {/* ════ BODY: two-column layout ═══════════════════════ */}
-        <div className="flex">
+        {/* ════ BODY: responsive columns ═══════════════════════ */}
+        <div className="flex flex-col md:flex-row">
 
-          {/* ── MAIN COLUMN (left ~65%) ── */}
-          <main className="flex-1 px-12 py-8 min-w-0">
+          {/* ── MAIN COLUMN ── */}
+          <main className="flex-1 px-6 md:px-12 py-6 md:py-8 min-w-0">
 
             {/* SUMMARY */}
             <section className="mb-8">
@@ -173,8 +173,8 @@ export default function ResumePage() {
           </main>
 
 
-          {/* ── SIDEBAR (right ~35%) ── */}
-          <aside className="w-[260px] shrink-0 bg-slate-50 border-l border-slate-200 px-7 py-8 print:bg-white">
+          {/* ── SIDEBAR ── */}
+          <aside className="w-full md:w-[260px] md:shrink-0 bg-slate-50 border-t md:border-t-0 md:border-l border-slate-200 px-6 md:px-7 py-6 md:py-8 print:bg-white">
 
             {/* EXPERTISE */}
             <section className="mb-7">

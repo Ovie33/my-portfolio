@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     siteOwner.name,
   ],
   authors: [{ name: siteOwner.name }],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   openGraph: {
     title: `${siteOwner.name} — ${siteOwner.title}`,
     description: siteOwner.bio,
