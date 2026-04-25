@@ -41,10 +41,10 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-xl transition-all duration-300 flex flex-col"
+      className="group relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col"
     >
       {/* Cover */}
-      <div className="relative w-full h-52 bg-gradient-to-br from-blue-50 to-slate-200 overflow-hidden shrink-0">
+      <div className="relative w-full h-52 bg-gradient-to-br from-blue-50 to-slate-200 dark:from-slate-700 dark:to-slate-600 overflow-hidden shrink-0">
         {coverUrl ? (
           <Image
             src={coverUrl}
@@ -55,14 +55,13 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
           />
         ) : project.figmaUrl ? (
-          /* Figma-branded cover for design-only projects */
           <div className="absolute inset-0 bg-gradient-to-br from-[#1e1e1e] via-[#2c2c54] to-[#0d99ff] flex flex-col items-center justify-center gap-3 group-hover:scale-105 transition-transform duration-500">
             <svg width="36" height="54" viewBox="0 0 38 57" fill="none" aria-hidden="true" className="drop-shadow-lg">
-              <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#0d99ff"/>
-              <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 0 1-19 0z" fill="#a259ff"/>
-              <path d="M19 0v19h9.5a9.5 9.5 0 0 0 0-19H19z" fill="#f24e1e"/>
-              <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#ff7262"/>
-              <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#1abcfe"/>
+              <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#0d99ff" />
+              <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 0 1-19 0z" fill="#a259ff" />
+              <path d="M19 0v19h9.5a9.5 9.5 0 0 0 0-19H19z" fill="#f24e1e" />
+              <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#ff7262" />
+              <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#1abcfe" />
             </svg>
             <span className="text-white/90 text-xs font-bold tracking-widest uppercase">Figma Designs</span>
           </div>
@@ -83,20 +82,20 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 
       {/* Body */}
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-blue-600 transition-colors">
           {project.title}
         </h3>
-        <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-1">
           {project.tagline}
         </p>
         <div className="flex flex-wrap gap-1.5 mb-5">
           {project.tech.slice(0, 3).map((t) => (
-            <span key={t} className="text-xs font-medium text-blue-600 bg-blue-50 border border-blue-100 px-2.5 py-0.5 rounded-md">
+            <span key={t} className="text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 rounded-md">
               {t}
             </span>
           ))}
           {project.tech.length > 3 && (
-            <span className="text-xs font-medium text-slate-400 bg-slate-50 border border-slate-100 px-2.5 py-0.5 rounded-md">
+            <span className="text-xs font-medium text-slate-400 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 px-2.5 py-0.5 rounded-md">
               +{project.tech.length - 3}
             </span>
           )}
@@ -110,7 +109,9 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 }
 
 // ─── Page ─────────────────────────────────────────────────────
+
 export default function HomePage() {
+
   const featuredProjects = projects.slice(0, 3);
   const latestJob = experiences[0];
 
@@ -118,10 +119,10 @@ export default function HomePage() {
     <div className="min-h-screen">
 
       {/* ── HERO ────────────────────────────────────────────── */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-[#f8f7f4]">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-[#f8f7f4] dark:bg-slate-950">
         {/* Grid bg */}
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
           style={{
             backgroundImage:
               "linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px)",
@@ -192,14 +193,14 @@ export default function HomePage() {
             <div>
               {/* Available badge */}
               {siteOwner.available && (
-                <div className="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm rounded-full px-4 py-1.5 mb-8">
+                <div className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm rounded-full px-4 py-1.5 mb-8">
                   <span className="dot-blink w-2 h-2 rounded-full bg-green-500 inline-block" />
-                  <span className="text-xs font-semibold text-slate-600">Available for new opportunities</span>
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">Available for new opportunities</span>
                 </div>
               )}
 
               {/* Name */}
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.04] text-slate-900 mb-6">
+              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.04] text-slate-900 dark:text-white mb-6">
                 <span className="relative inline-block">
                   <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-sky-400 bg-clip-text text-transparent">
                     {siteOwner.name}
@@ -226,13 +227,13 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3 mb-8">
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-md"
+                  className="inline-flex items-center gap-2 bg-slate-900 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-md"
                 >
                   View My Work <ArrowRight size={16} />
                 </Link>
                 <Link
                   href={siteOwner.cvUrl}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold px-7 py-3.5 rounded-xl border border-slate-200 hover:border-blue-300 transition-colors"
+                  className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold px-7 py-3.5 rounded-xl border border-slate-200 dark:border-slate-600 hover:border-blue-300 transition-colors"
                 >
                   <Download size={16} /> Download CV
                 </Link>
@@ -247,7 +248,7 @@ export default function HomePage() {
                     target={s.platform !== "Email" ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     aria-label={s.platform}
-                    className="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:border-blue-300 hover:text-blue-600 text-slate-500 flex items-center justify-center shadow-sm hover:shadow-md transition-all"
+                    className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:text-blue-600 dark:hover:text-blue-400 text-slate-500 dark:text-slate-400 flex items-center justify-center shadow-sm hover:shadow-md transition-all"
                   >
                     {s.platform === "GitHub" && <GitHubIcon />}
                     {s.platform === "LinkedIn" && <LinkedInIcon />}
@@ -286,19 +287,19 @@ export default function HomePage() {
                 </div>
 
                 {/* Floating experience badge */}
-                <div className="absolute -bottom-5 -left-5 bg-white border border-slate-100 shadow-lg rounded-2xl px-4 py-3 flex items-center gap-3">
+                <div className="absolute -bottom-10 -left-18 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg rounded-2xl px-4 py-3 flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
                     <span className="text-white text-xs font-extrabold">6+</span>
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-slate-800 leading-none">Years of</p>
+                    <p className="text-xs font-bold text-slate-800 dark:text-white leading-none">Years of</p>
                     <p className="text-xs text-slate-400 leading-none mt-0.5">Experience</p>
                   </div>
                 </div>
 
                 {/* Floating stack badge */}
-                <div className="absolute -top-4 -right-4 bg-white border border-slate-100 shadow-lg rounded-2xl px-3 py-2.5 text-center">
-                  <p className="text-xs font-bold text-slate-800">Full-Stack</p>
+                <div className="absolute -top-10 -right-15 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-lg rounded-2xl px-3 py-2.5 text-center">
+                  <p className="text-xs font-bold text-slate-800 dark:text-white">Full-Stack</p>
                   <p className="text-[10px] text-blue-500 font-semibold mt-0.5">React · Node · Next</p>
                 </div>
               </div>
@@ -316,12 +317,12 @@ export default function HomePage() {
 
 
       {/* ── STATS ───────────────────────────────────────────── */}
-      <section className="bg-white border-y border-slate-100">
+      <section className="bg-white dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-slate-100">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-slate-100 dark:divide-slate-800">
             {stats.map((s) => (
               <div key={s.label} className="px-8 py-10 text-center">
-                <div className="text-4xl font-extrabold text-slate-900 tracking-tight mb-1">{s.value}</div>
+                <div className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">{s.value}</div>
                 <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest">{s.label}</div>
               </div>
             ))}
@@ -334,7 +335,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <SectionLabel>About Me</SectionLabel>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+            <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-6">
               Engineering with precision,<br />shipped with purpose.
             </h2>
             <p className="text-slate-500 leading-relaxed mb-5">{siteOwner.bio}</p>
@@ -354,7 +355,7 @@ export default function HomePage() {
           </div>
 
           {/* Quick facts */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-8 shadow-sm">
             <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5">Quick Facts</p>
             {[
               { label: "Location", value: "Delta State, Nigeria" },
@@ -364,9 +365,9 @@ export default function HomePage() {
               { label: "Languages", value: "English (Fluent)" },
               { label: "Status", value: siteOwner.available ? "✅  Open to Work" : "Not Available" },
             ].map((fact) => (
-              <div key={fact.label} className="flex items-center justify-between py-3 border-b border-slate-100 last:border-0">
+              <div key={fact.label} className="flex items-center justify-between py-3 border-b border-slate-100 dark:border-slate-700 last:border-0">
                 <span className="text-sm text-slate-400 font-medium">{fact.label}</span>
-                <span className="text-sm text-slate-700 font-semibold">{fact.value}</span>
+                <span className="text-sm text-slate-700 dark:text-slate-200 font-semibold">{fact.value}</span>
               </div>
             ))}
           </div>
@@ -374,12 +375,12 @@ export default function HomePage() {
       </section>
 
       {/* ── FEATURED PROJECTS ───────────────────────────────── */}
-      <section className="bg-slate-50 border-y border-slate-100 py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800 py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
             <div>
               <SectionLabel>Selected Work</SectionLabel>
-              <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">Projects I&apos;ve shipped</h2>
+              <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Projects I&apos;ve shipped</h2>
             </div>
             <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:gap-3 transition-all whitespace-nowrap">
               View all projects <ArrowRight size={14} />
@@ -397,7 +398,7 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
             <SectionLabel>Experience</SectionLabel>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">Where I&apos;ve worked</h2>
+            <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Where I&apos;ve worked</h2>
           </div>
           <Link href="/about#experience" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:gap-3 transition-all whitespace-nowrap">
             Full experience <ArrowRight size={14} />
@@ -408,23 +409,23 @@ export default function HomePage() {
           {experiences.map((exp, i) => (
             <div
               key={exp.id}
-              className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 bg-white border border-slate-200 rounded-2xl px-8 py-6 hover:border-blue-200 hover:shadow-md transition-all"
+              className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-8 py-6 hover:border-blue-200 dark:hover:border-blue-600 hover:shadow-md transition-all"
             >
-              <span className="text-3xl font-extrabold text-slate-100 w-10 shrink-0 select-none">
+              <span className="text-3xl font-extrabold text-slate-100 dark:text-slate-700 w-10 shrink-0 select-none">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="flex-1 min-w-0">
-                <p className="text-base font-bold text-slate-800">{exp.role}</p>
+                <p className="text-base font-bold text-slate-800 dark:text-white">{exp.role}</p>
                 <p className="text-sm font-semibold text-blue-600">{exp.company}</p>
               </div>
               <div className="hidden lg:flex flex-wrap gap-1.5">
                 {exp.tech.slice(0, 3).map((t) => (
-                  <span key={t} className="text-xs font-medium text-slate-500 bg-slate-50 border border-slate-100 px-2.5 py-0.5 rounded-md">
+                  <span key={t} className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 px-2.5 py-0.5 rounded-md">
                     {t}
                   </span>
                 ))}
               </div>
-              <span className="text-xs font-semibold text-slate-400 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-full whitespace-nowrap shrink-0">
+              <span className="text-xs font-semibold text-slate-400 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 px-3 py-1.5 rounded-full whitespace-nowrap shrink-0">
                 {exp.date}
               </span>
             </div>

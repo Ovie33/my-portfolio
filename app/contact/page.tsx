@@ -110,12 +110,12 @@ export default function ContactPage() {
   function field(key: keyof typeof fields, label: string, type = "text", rows?: number) {
     const isTextarea = rows !== undefined;
     const base =
-      "w-full px-4 py-3 rounded-xl border bg-white text-slate-800 text-sm placeholder:text-slate-400 outline-none transition-all focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400";
-    const errClass = errors[key] ? "border-red-300" : "border-slate-200";
+      "w-full px-4 py-3 rounded-xl border bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 dark:placeholder:text-slate-500 text-sm placeholder:text-slate-400 outline-none transition-all focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400 dark:border-slate-600";
+    const errClass = errors[key] ? "border-red-300 dark:border-red-500" : "border-slate-200 dark:border-slate-600";
 
     return (
       <div>
-        <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wide">
+        <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wide">
           {label}
         </label>
         {isTextarea ? (
@@ -148,7 +148,7 @@ export default function ContactPage() {
     <div className="min-h-screen">
 
       {/* ── HERO ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#f8f7f4] border-b border-slate-100">
+      <section className="relative overflow-hidden bg-[#f8f7f4] dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
         {/* Decorative vectors */}
         <svg className="absolute top-10 right-14 opacity-40 text-blue-600 float-slow pointer-events-none"
           width="44" height="44" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
@@ -169,7 +169,7 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto px-6 py-20">
           <div className="max-w-2xl">
             <SectionLabel>Contact</SectionLabel>
-            <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-5">
+            <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-5">
               Let&apos;s build something{" "}
               <span className="bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text text-transparent">
                 great together.
@@ -189,11 +189,11 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12 items-start">
 
           {/* ── FORM ── */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-8 shadow-sm">
             {formState === "success" ? (
               <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
                 <CheckCircle size={52} className="text-green-500" />
-                <h2 className="text-2xl font-extrabold text-slate-900">Message sent!</h2>
+                <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">Message sent!</h2>
                 <p className="text-slate-500 max-w-sm">
                   Thanks for reaching out. Your default email client should have opened I&apos;ll
                   get back to you as soon as possible.
@@ -234,7 +234,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={formState === "sending"}
-                  className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 disabled:opacity-60 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-md self-start"
+                  className="inline-flex items-center justify-center gap-2 bg-slate-900 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-500 disabled:opacity-60 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-md self-start"
                 >
                   {formState === "sending" ? (
                     <>
@@ -255,14 +255,14 @@ export default function ContactPage() {
           <div className="flex flex-col gap-6">
 
             {/* Contact details */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-7 shadow-sm">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-7 shadow-sm">
               <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5">
                 Contact Details
               </p>
               <div className="flex flex-col gap-4">
                 {contactDetails.map((c) => (
                   <div key={c.label} className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950 flex items-center justify-center shrink-0">
                       {c.icon}
                     </div>
                     <div className="min-w-0">
@@ -272,12 +272,12 @@ export default function ContactPage() {
                           href={c.href}
                           target={c.href.startsWith("http") ? "_blank" : undefined}
                           rel="noopener noreferrer"
-                          className="text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors truncate block"
+                          className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors truncate block"
                         >
                           {c.value}
                         </a>
                       ) : (
-                        <p className="text-sm font-medium text-slate-700">{c.value}</p>
+                        <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{c.value}</p>
                       )}
                     </div>
                   </div>
@@ -286,13 +286,13 @@ export default function ContactPage() {
             </div>
 
             {/* Open to */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-7 shadow-sm">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-7 shadow-sm">
               <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5">
                 Open To
               </p>
               <ul className="flex flex-col gap-2.5">
                 {openTo.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-slate-600">
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-400">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0" />
                     {item}
                   </li>
@@ -316,7 +316,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── BOTTOM CTA strip ────────────────────────────────── */}
-      <section className="bg-slate-50 border-t border-slate-100 py-16">
+      <section className="bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-16">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Prefer to browse first?</p>
@@ -325,13 +325,13 @@ export default function ContactPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-blue-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-sm text-sm"
+              className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-300 text-slate-700 dark:text-slate-300 font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-sm text-sm"
             >
               View Projects <ArrowRight size={14} />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-blue-300 text-slate-700 font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-sm text-sm"
+              className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-300 text-slate-700 dark:text-slate-300 font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-sm text-sm"
             >
               About Me <ArrowRight size={14} />
             </Link>

@@ -1,6 +1,122 @@
 /* ─── Tailwind v4 ─────────────────────────────────────────── */
 @import "tailwindcss";
 
+/* ─── Dark mode via .dark class on <html> ────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Theme overrides (v4 way — no tailwind.config needed) ── */
+@theme {
+  --font-sans: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Base styles ─────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom text selection */
+  ::selection {
+    background-color: #bfdbfe;
+    color: #1e3a8a;
+  }
+
+  /* Custom scrollbar — light */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 99px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  /* Custom scrollbar — dark */
+  .dark ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+}
+
+/* ─── Utilities ───────────────────────────────────────────── */
+@layer utilities {
+
+  /* Fade-in animation used on page sections */
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger helpers */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Blink dot for "available" badge */
+  .dot-blink {
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  /* ── Floating / bouncy animations for hero decorative SVGs ── */
+  .float-slow {
+    animation: floatY 5s ease-in-out infinite;
+  }
+
+  .float-medium {
+    animation: floatY 3.6s ease-in-out infinite;
+    animation-delay: 0.8s;
+  }
+
+  .float-fast {
+    animation: floatRotate 4.2s ease-in-out infinite;
+    animation-delay: 1.4s;
+  }
+
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0px);   }
+    50%       { transform: translateY(-14px); }
+  }
+
+  @keyframes floatRotate {
+    0%, 100% { transform: translateY(-50%) rotate(0deg);   }
+    50%       { transform: translateY(calc(-50% - 10px)) rotate(18deg); }
+  }
+}
+
+
 /* ─── Theme overrides (v4 way — no tailwind.config needed) ── */
 @theme {
   --font-sans: var(--font-dm-sans), "DM Sans", ui-sans-serif, system-ui, sans-serif;

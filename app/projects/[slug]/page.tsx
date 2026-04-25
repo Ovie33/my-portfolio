@@ -110,7 +110,7 @@ export default async function ProjectPage({
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-4">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
                 {project.title}
               </h1>
               <p className="text-lg text-slate-500 leading-relaxed mb-6">{project.tagline}</p>

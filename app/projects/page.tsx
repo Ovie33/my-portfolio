@@ -47,10 +47,10 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:border-blue-300 hover:shadow-xl transition-all duration-300 flex flex-col"
+      className="group relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col"
     >
       {/* Cover image */}
-      <div className="relative w-full h-52 bg-gradient-to-br from-blue-50 to-slate-200 overflow-hidden shrink-0">
+      <div className="relative w-full h-52 bg-gradient-to-br from-blue-50 to-slate-200 dark:from-slate-700 dark:to-slate-600 overflow-hidden shrink-0">
         {coverUrl ? (
           <Image
             src={coverUrl}
@@ -92,20 +92,20 @@ function ProjectCard({ project }: { project: Project }) {
 
       {/* Body */}
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="text-lg font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-blue-600 transition-colors">
           {project.title}
         </h3>
-        <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-1">
           {project.tagline}
         </p>
         <div className="flex flex-wrap gap-1.5 mb-5">
           {project.tech.slice(0, 3).map((t) => (
-            <span key={t} className="text-xs font-medium text-blue-600 bg-blue-50 border border-blue-100 px-2.5 py-0.5 rounded-md">
+            <span key={t} className="text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 rounded-md">
               {t}
             </span>
           ))}
           {project.tech.length > 3 && (
-            <span className="text-xs font-medium text-slate-400 bg-slate-50 border border-slate-100 px-2.5 py-0.5 rounded-md">
+            <span className="text-xs font-medium text-slate-400 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 px-2.5 py-0.5 rounded-md">
               +{project.tech.length - 3}
             </span>
           )}
@@ -131,7 +131,7 @@ export default function ProjectsPage() {
     <div className="min-h-screen">
 
       {/* ── HERO ───────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#f8f7f4] border-b border-slate-100">
+      <section className="relative overflow-hidden bg-[#f8f7f4] dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
         {/* Decorative vectors */}
         <svg className="absolute top-10 right-14 opacity-40 text-blue-600 float-slow pointer-events-none"
           width="44" height="44" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
@@ -152,7 +152,7 @@ export default function ProjectsPage() {
         <div className="max-w-6xl mx-auto px-6 py-20">
           <div className="max-w-2xl">
             <SectionLabel>My Work</SectionLabel>
-            <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-5">
+            <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-5">
               Projects I&apos;ve{" "}
               <span className="bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text text-transparent">
                 shipped.
@@ -177,8 +177,8 @@ export default function ProjectsPage() {
               key={cat}
               onClick={() => setActive(cat)}
               className={`text-sm font-semibold px-4 py-2 rounded-xl border transition-all ${active === cat
-                ? "bg-slate-900 text-white border-slate-900"
-                : "bg-white text-slate-600 border-slate-200 hover:border-blue-300 hover:text-blue-600"
+                ? "bg-slate-900 text-white border-slate-900 dark:bg-blue-600 dark:border-blue-600"
+                : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:text-blue-600 dark:hover:text-blue-400"
                 }`}
             >
               {cat}
@@ -193,7 +193,7 @@ export default function ProjectsPage() {
 
         {/* Count */}
         <p className="text-sm text-slate-400 mb-8">
-          Showing <span className="font-semibold text-slate-600">{filtered.length}</span> project{filtered.length !== 1 ? "s" : ""}
+          Showing <span className="font-semibold text-slate-600 dark:text-slate-300">{filtered.length}</span> project{filtered.length !== 1 ? "s" : ""}
           {active !== "All" && <> in <span className="font-semibold text-blue-600">{active}</span></>}
         </p>
 

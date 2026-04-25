@@ -48,7 +48,7 @@ export default function AboutPage() {
     <div className="min-h-screen">
 
       {/* ── PAGE HERO ───────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#f8f7f4] border-b border-slate-100">
+      <section className="relative overflow-hidden bg-[#f8f7f4] dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
         {/* ── Decorative vectors (absolute, pointer-events-none) ── */}
         {/* 1 — 4-point star, top-right */}
         <svg
@@ -86,7 +86,7 @@ export default function AboutPage() {
             {/* Text */}
             <div>
               <SectionLabel>About Me</SectionLabel>
-              <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 leading-tight mb-6">
+              <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-6">
                 Engineer. Builder.<br />
                 <span className="bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text text-transparent">
                   Problem Solver.
@@ -111,13 +111,13 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-md"
+                  className="inline-flex items-center gap-2 bg-slate-900 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-md"
                 >
                   <Mail size={15} /> Get in Touch
                 </Link>
                 <Link
                   href={siteOwner.cvUrl}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold px-6 py-3 rounded-xl border border-slate-200 hover:border-blue-300 transition-colors"
+                  className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 transition-colors"
                 >
                   <Download size={15} /> Download CV
                 </Link>
@@ -154,7 +154,7 @@ export default function AboutPage() {
                     target={s.platform !== "Email" ? "_blank" : undefined}
                     rel="noopener noreferrer"
                     aria-label={s.platform}
-                    className="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:border-blue-300 hover:text-blue-600 text-slate-500 flex items-center justify-center shadow-sm hover:shadow-md transition-all"
+                    className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-300 hover:text-blue-600 dark:hover:text-blue-400 text-slate-500 dark:text-slate-400 flex items-center justify-center shadow-sm hover:shadow-md transition-all"
                   >
                     {s.platform === "GitHub" && <GitHubIcon />}
                     {s.platform === "LinkedIn" && <LinkedInIcon />}
@@ -168,12 +168,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── STATS ───────────────────────────────────────────── */}
-      <section className="bg-white border-b border-slate-100">
+      <section className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-slate-100">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-slate-100 dark:divide-slate-800">
             {stats.map((s) => (
               <div key={s.label} className="px-8 py-10 text-center">
-                <div className="text-4xl font-extrabold text-slate-900 tracking-tight mb-1">{s.value}</div>
+                <div className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">{s.value}</div>
                 <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest">{s.label}</div>
               </div>
             ))}
@@ -185,38 +185,38 @@ export default function AboutPage() {
       <section id="experience" className="max-w-6xl mx-auto px-6 py-24">
         <div className="mb-12">
           <SectionLabel>Experience</SectionLabel>
-          <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Where I&apos;ve worked
           </h2>
         </div>
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[11px] top-2 bottom-2 w-px bg-slate-200 hidden md:block" />
+          <div className="absolute left-[11px] top-2 bottom-2 w-px bg-slate-200 dark:bg-slate-700 hidden md:block" />
 
           <div className="flex flex-col gap-10">
             {experiences.map((exp, i) => (
               <div key={exp.id} className="md:pl-10 relative">
                 {/* Timeline dot */}
-                <div className="hidden md:flex absolute left-0 top-1.5 w-[23px] h-[23px] rounded-full border-2 border-blue-600 bg-white items-center justify-center">
+                <div className="hidden md:flex absolute left-0 top-1.5 w-[23px] h-[23px] rounded-full border-2 border-blue-600 bg-white dark:bg-slate-900 items-center justify-center">
                   <div className="w-2 h-2 rounded-full bg-blue-600" />
                 </div>
 
-                <div className="bg-white border border-slate-200 rounded-2xl p-7 hover:border-blue-200 hover:shadow-md transition-all">
+                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-7 hover:border-blue-200 dark:hover:border-blue-600 hover:shadow-md transition-all">
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 mb-3">
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900">{exp.role}</h3>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">{exp.role}</h3>
                       <p className="text-sm font-semibold text-blue-600">{exp.company}</p>
                     </div>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-full whitespace-nowrap shrink-0">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 px-3 py-1.5 rounded-full whitespace-nowrap shrink-0">
                       <Calendar size={11} />
                       {exp.date}
                     </span>
                   </div>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-4">{exp.description}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.tech.map((t) => (
-                      <span key={t} className="text-xs font-medium text-blue-600 bg-blue-50 border border-blue-100 px-2.5 py-0.5 rounded-md">
+                      <span key={t} className="text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-950 border border-blue-100 dark:border-blue-900 px-2.5 py-0.5 rounded-md">
                         {t}
                       </span>
                     ))}
@@ -229,11 +229,11 @@ export default function AboutPage() {
       </section>
 
       {/* ── SKILLS ──────────────────────────────────────────── */}
-      <section id="skills" className="bg-slate-50 border-y border-slate-100 py-24">
+      <section id="skills" className="bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800 py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-12">
             <SectionLabel>Skills</SectionLabel>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               Tools &amp; Technologies
             </h2>
           </div>
@@ -248,7 +248,7 @@ export default function AboutPage() {
                   {items.map((skill) => (
                     <div
                       key={skill.name}
-                      className="flex items-center gap-2.5 bg-white border border-slate-200 hover:border-blue-300 hover:shadow-sm rounded-xl px-4 py-2.5 transition-all group"
+                      className="flex items-center gap-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-sm rounded-xl px-4 py-2.5 transition-all group"
                     >
                       {skill.iconUrl && (
                         <img
@@ -259,7 +259,7 @@ export default function AboutPage() {
                           className="w-5 h-5 object-contain"
                         />
                       )}
-                      <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                         {skill.name}
                       </span>
                     </div>
@@ -275,7 +275,7 @@ export default function AboutPage() {
       <section id="education" className="max-w-6xl mx-auto px-6 py-24">
         <div className="mb-12">
           <SectionLabel>Education</SectionLabel>
-          <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Academic background
           </h2>
         </div>
@@ -284,16 +284,16 @@ export default function AboutPage() {
           {education.map((edu) => (
             <div
               key={edu.id}
-              className="bg-white border border-slate-200 rounded-2xl p-7 hover:border-blue-200 hover:shadow-md transition-all"
+              className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-7 hover:border-blue-200 dark:hover:border-blue-600 hover:shadow-md transition-all"
             >
-              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4 shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950 flex items-center justify-center mb-4 shrink-0">
                 <span className="text-blue-600 font-extrabold text-sm">{edu.id}</span>
               </div>
-              <h3 className="text-base font-bold text-slate-900 mb-1">{edu.degree}</h3>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">{edu.degree}</h3>
               <p className="text-sm font-semibold text-blue-600 mb-1">{edu.institution}</p>
               <p className="text-xs text-slate-400 mb-2">{edu.period}</p>
               {edu.detail && (
-                <p className="text-xs font-medium text-slate-500 bg-slate-50 border border-slate-100 rounded-lg px-3 py-1.5 w-fit">
+                <p className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 rounded-lg px-3 py-1.5 w-fit">
                   {edu.detail}
                 </p>
               )}
@@ -303,11 +303,11 @@ export default function AboutPage() {
       </section>
 
       {/* ── TESTIMONIALS ────────────────────────────────────── */}
-      <section className="bg-slate-50 border-y border-slate-100 py-24">
+      <section className="bg-slate-50 dark:bg-slate-900 border-y border-slate-100 dark:border-slate-800 py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-12">
             <SectionLabel>Testimonials</SectionLabel>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
               What clients say
             </h2>
           </div>
@@ -316,13 +316,13 @@ export default function AboutPage() {
             {testimonials.map((t) => (
               <div
                 key={t.id}
-                className="bg-white border border-slate-200 rounded-2xl p-7 hover:border-blue-200 hover:shadow-md transition-all flex flex-col"
+                className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-7 hover:border-blue-200 dark:hover:border-blue-600 hover:shadow-md transition-all flex flex-col"
               >
                 {/* Quote mark */}
                 <span className="text-4xl font-black text-blue-100 leading-none mb-3 select-none">&ldquo;</span>
-                <p className="text-sm text-slate-600 leading-relaxed flex-1 mb-6">{t.quote}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1 mb-6">{t.quote}</p>
                 <div>
-                  <p className="text-sm font-bold text-slate-900">{t.name}</p>
+                  <p className="text-sm font-bold text-slate-900 dark:text-white">{t.name}</p>
                   <p className="text-xs text-slate-400 font-medium">{t.title}</p>
                 </div>
               </div>

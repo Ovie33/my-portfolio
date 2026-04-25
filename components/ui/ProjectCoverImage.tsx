@@ -19,7 +19,7 @@ export default function ProjectCoverImage({ src, alt, initials, figmaUrl }: Prop
 
       {/* Layer 1 — deepest fallback: initials on light gradient */}
       {!figmaUrl && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-100 select-none">
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50 to-slate-100 dark:from-slate-700 dark:to-slate-600 select-none">
           <span className="text-5xl font-extrabold text-slate-200">{initials}</span>
         </div>
       )}
