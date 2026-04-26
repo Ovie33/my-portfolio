@@ -28,14 +28,14 @@ export async function generateMetadata({
 
 // ─── Category colour map ──────────────────────────────────────
 const catColours: Record<string, string> = {
-  Dashboard:    "text-purple-700 bg-purple-50 border-purple-200",
-  Fintech:      "text-emerald-700 bg-emerald-50 border-emerald-200",
-  "Web App":    "text-blue-700 bg-blue-50 border-blue-200",
-  Mobile:       "text-orange-700 bg-orange-50 border-orange-200",
-  "E-Commerce": "text-pink-700 bg-pink-50 border-pink-200",
-  EdTech:       "text-sky-700 bg-sky-50 border-sky-200",
-  Platform:     "text-indigo-700 bg-indigo-50 border-indigo-200",
-  AI:           "text-violet-700 bg-violet-50 border-violet-200",
+  Dashboard:    "text-purple-700 bg-purple-50 border-purple-200 dark:text-purple-300 dark:bg-purple-900/30 dark:border-purple-700",
+  Fintech:      "text-emerald-700 bg-emerald-50 border-emerald-200 dark:text-emerald-300 dark:bg-emerald-900/30 dark:border-emerald-700",
+  "Web App":    "text-blue-700 bg-blue-50 border-blue-200 dark:text-blue-300 dark:bg-blue-900/30 dark:border-blue-700",
+  Mobile:       "text-orange-700 bg-orange-50 border-orange-200 dark:text-orange-300 dark:bg-orange-900/30 dark:border-orange-700",
+  "E-Commerce": "text-pink-700 bg-pink-50 border-pink-200 dark:text-pink-300 dark:bg-pink-900/30 dark:border-pink-700",
+  EdTech:       "text-sky-700 bg-sky-50 border-sky-200 dark:text-sky-300 dark:bg-sky-900/30 dark:border-sky-700",
+  Platform:     "text-indigo-700 bg-indigo-50 border-indigo-200 dark:text-indigo-300 dark:bg-indigo-900/30 dark:border-indigo-700",
+  AI:           "text-violet-700 bg-violet-50 border-violet-200 dark:text-violet-300 dark:bg-violet-900/30 dark:border-violet-700",
 };
 
 // ─── Section block ────────────────────────────────────────────
@@ -49,14 +49,14 @@ function CaseBlock({
   body: string;
 }) {
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-7 hover:border-blue-200 hover:shadow-sm transition-all">
+    <div className="bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl p-7 hover:border-blue-200 dark:hover:border-blue-600 hover:shadow-sm transition-all">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+        <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
           {icon}
         </div>
-        <h3 className="text-sm font-bold text-slate-800 uppercase tracking-widest">{heading}</h3>
+        <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 uppercase tracking-widest">{heading}</h3>
       </div>
-      <p className="text-slate-500 text-sm leading-relaxed">{body}</p>
+      <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{body}</p>
     </div>
   );
 }
@@ -72,7 +72,7 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   const coverUrl = getProjectCoverUrl(project);
-  const catClass = catColours[project.category] ?? "text-slate-600 bg-slate-50 border-slate-200";
+  const catClass = catColours[project.category] ?? "text-slate-600 bg-slate-50 border-slate-200 dark:text-slate-400 dark:bg-slate-800 dark:border-slate-600";
 
   // Find adjacent projects for navigation
   const currentIndex = projects.findIndex((p) => p.slug === slug);
@@ -80,14 +80,14 @@ export default async function ProjectPage({
   const next = projects[currentIndex + 1] ?? null;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
 
       {/* ── BACK NAV ──────────────────────────────────────── */}
-      <div className="bg-[#f8f7f4] border-b border-slate-100">
+      <div className="bg-[#f8f7f4] dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-blue-600 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
             <ArrowLeft size={14} /> All Projects
           </Link>
@@ -95,7 +95,7 @@ export default async function ProjectPage({
       </div>
 
       {/* ── HERO ──────────────────────────────────────────── */}
-      <section className="bg-[#f8f7f4] border-b border-slate-100">
+      <section className="bg-[#f8f7f4] dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 py-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
@@ -105,7 +105,7 @@ export default async function ProjectPage({
                 <span className={`text-xs font-bold border px-3 py-1 rounded-full ${catClass}`}>
                   {project.category}
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 bg-white border border-slate-100 px-3 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 dark:text-slate-500 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 px-3 py-1 rounded-full">
                   <Calendar size={11} /> {project.year}
                 </span>
               </div>
@@ -113,12 +113,12 @@ export default async function ProjectPage({
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
                 {project.title}
               </h1>
-              <p className="text-lg text-slate-500 leading-relaxed mb-6">{project.tagline}</p>
+              <p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed mb-6">{project.tagline}</p>
 
               {/* Tech stack */}
               <div className="flex flex-wrap gap-2 mb-8">
                 {project.tech.map((t) => (
-                  <span key={t} className="text-xs font-medium text-blue-600 bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-md">
+                  <span key={t} className="text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 px-2.5 py-1 rounded-md">
                     {t}
                   </span>
                 ))}
@@ -131,7 +131,7 @@ export default async function ProjectPage({
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-md"
+                    className="inline-flex items-center gap-2 bg-slate-900 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-md"
                   >
                     <ExternalLink size={14} /> View Live Site
                   </a>
@@ -141,7 +141,7 @@ export default async function ProjectPage({
                     href={project.figmaUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#1e1e1e] hover:bg-[#0d99ff] text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-md"
+                    className="inline-flex items-center gap-2 bg-[#1e1e1e] dark:bg-slate-700 hover:bg-[#0d99ff] dark:hover:bg-[#0d99ff] text-white font-semibold px-6 py-3 rounded-xl transition-colors shadow-md"
                   >
                     {/* Figma logo */}
                     <svg width="14" height="14" viewBox="0 0 38 57" fill="none" aria-hidden="true">
@@ -159,7 +159,7 @@ export default async function ProjectPage({
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-blue-300 text-slate-700 font-semibold px-6 py-3 rounded-xl transition-colors"
+                    className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500 text-slate-700 dark:text-slate-200 font-semibold px-6 py-3 rounded-xl transition-colors"
                   >
                     GitHub
                   </a>
@@ -169,7 +169,7 @@ export default async function ProjectPage({
 
             {/* Right: cover image */}
             <div className="relative">
-              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-blue-100 via-sky-50 to-slate-100 opacity-60" />
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-blue-100 via-sky-50 to-slate-100 dark:from-blue-900/20 dark:via-sky-900/10 dark:to-slate-800/30 opacity-60" />
               <div className="relative">
                 <ProjectCoverImage
                   src={coverUrl}
@@ -188,11 +188,11 @@ export default async function ProjectPage({
 
         {/* Overview */}
         <div className="max-w-3xl mb-14">
-          <p className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-[0.12em] mb-4">
-            <span className="w-6 h-px bg-blue-600 inline-block" />
+          <p className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-[0.12em] mb-4">
+            <span className="w-6 h-px bg-blue-600 dark:bg-blue-400 inline-block" />
             Overview
           </p>
-          <p className="text-xl text-slate-600 leading-relaxed">{project.overview}</p>
+          <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">{project.overview}</p>
         </div>
 
         {/* Challenge / Solution / Outcome grid */}
@@ -229,13 +229,13 @@ export default async function ProjectPage({
         {/* Additional screenshots */}
         {project.images && project.images.length > 0 && (
           <div className="mb-16">
-            <p className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-[0.12em] mb-6">
-              <span className="w-6 h-px bg-blue-600 inline-block" />
+            <p className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-[0.12em] mb-6">
+              <span className="w-6 h-px bg-blue-600 dark:bg-blue-400 inline-block" />
               Screenshots
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {project.images.map((img, i) => (
-                <div key={i} className="relative aspect-video rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
+                <div key={i} className="relative aspect-video rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm bg-slate-50 dark:bg-slate-800">
                   <Image src={img} alt={`${project.title} screenshot ${i + 1}`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-top" />
                 </div>
               ))}
@@ -246,11 +246,11 @@ export default async function ProjectPage({
         {/* Figma prototype embed */}
         {project.figmaUrl && (
           <div className="mb-16">
-            <p className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-[0.12em] mb-6">
-              <span className="w-6 h-px bg-blue-600 inline-block" />
+            <p className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-[0.12em] mb-6">
+              <span className="w-6 h-px bg-blue-600 dark:bg-blue-400 inline-block" />
               {project.liveUrl ? "Design Prototype" : "Design Preview"}
             </p>
-            <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50" style={{ height: "700px" }}>
+            <div className="w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm bg-slate-50 dark:bg-slate-800" style={{ height: "700px" }}>
               <iframe
                 src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(project.figmaUrl)}`}
                 className="w-full h-full"
@@ -258,9 +258,9 @@ export default async function ProjectPage({
                 title={`${project.title} Figma design`}
               />
             </div>
-            <p className="text-xs text-slate-400 mt-3 text-center">
+            <p className="text-xs text-slate-400 dark:text-slate-500 mt-3 text-center">
               Can&apos;t see the embed?{" "}
-              <a href={project.figmaUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+              <a href={project.figmaUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
                 Open directly in Figma ↗
               </a>
             </p>
@@ -269,25 +269,25 @@ export default async function ProjectPage({
       </section>
 
       {/* ── PROJECT NAVIGATION ────────────────────────────── */}
-      <section className="border-t border-slate-100 bg-slate-50">
+      <section className="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="flex flex-col md:flex-row items-stretch justify-between gap-4">
             {prev ? (
               <Link
                 href={`/projects/${prev.slug}`}
-                className="group flex-1 flex items-center gap-4 bg-white border border-slate-200 hover:border-blue-300 hover:shadow-md rounded-2xl px-6 py-5 transition-all"
+                className="group flex-1 flex items-center gap-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md rounded-2xl px-6 py-5 transition-all"
               >
-                <ArrowLeft size={18} className="text-slate-400 group-hover:text-blue-600 transition-colors shrink-0" />
+                <ArrowLeft size={18} className="text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0" />
                 <div className="min-w-0">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Previous</p>
-                  <p className="text-sm font-bold text-slate-800 group-hover:text-blue-600 transition-colors truncate">{prev.title}</p>
+                  <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-0.5">Previous</p>
+                  <p className="text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">{prev.title}</p>
                 </div>
               </Link>
             ) : <div className="flex-1" />}
 
             <Link
               href="/projects"
-              className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-blue-600 text-white font-semibold px-6 py-5 rounded-2xl transition-colors text-sm"
+              className="flex items-center justify-center gap-2 bg-slate-900 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold px-6 py-5 rounded-2xl transition-colors text-sm"
             >
               All Projects
             </Link>
@@ -295,13 +295,13 @@ export default async function ProjectPage({
             {next ? (
               <Link
                 href={`/projects/${next.slug}`}
-                className="group flex-1 flex items-center justify-end gap-4 bg-white border border-slate-200 hover:border-blue-300 hover:shadow-md rounded-2xl px-6 py-5 transition-all"
+                className="group flex-1 flex items-center justify-end gap-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md rounded-2xl px-6 py-5 transition-all"
               >
                 <div className="min-w-0 text-right">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Next</p>
-                  <p className="text-sm font-bold text-slate-800 group-hover:text-blue-600 transition-colors truncate">{next.title}</p>
+                  <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-0.5">Next</p>
+                  <p className="text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">{next.title}</p>
                 </div>
-                <ArrowLeft size={18} className="text-slate-400 group-hover:text-blue-600 transition-colors shrink-0 rotate-180" />
+                <ArrowLeft size={18} className="text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0 rotate-180" />
               </Link>
             ) : <div className="flex-1" />}
           </div>
