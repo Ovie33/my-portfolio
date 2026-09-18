@@ -55,6 +55,15 @@ export const socialLinks: SocialLink[] = [
 export const experiences: Experience[] = [
     {
         id: 1,
+        role: "Frontend Developer (Next.js Focused)",
+        company: "FoodHutz",
+        date: "Jan 2026 – Aug 2026",
+        description:
+            "Worked as the lead frontend developer focused on Next.js, building a high-performance multi-vendor food ordering, reservations, and retail catering web application. Architected scalable Next.js and TypeScript components, managed state flows for multi-vendor ordering and reservations, and integrated robust REST APIs for seamless user and vendor journeys.",
+        tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "REST APIs"],
+    },
+    {
+        id: 2,
         role: "Full-Stack Engineer",
         company: "Calarax",
         date: "Jan 2025 – Nov 2025",
@@ -63,7 +72,7 @@ export const experiences: Experience[] = [
         tech: ["React", "Node.js", "TypeScript", "Python", "OpenAI API"],
     },
     {
-        id: 2,
+        id: 3,
         role: "Software Associate / App Dev Trainer",
         company: "Harvoxx Tech Hub",
         date: "Jun 2024 – Dec 2024",
@@ -72,7 +81,7 @@ export const experiences: Experience[] = [
         tech: ["React Native", "Node.js", "SupaBase", "REST APIs", "Zustand"],
     },
     {
-        id: 3,
+        id: 4,
         role: "Freelance Full-Stack Developer",
         company: "Self-Employed",
         date: "May 2021 – Present",
@@ -81,13 +90,13 @@ export const experiences: Experience[] = [
         tech: ["React", "Express.js", "Firebase", "PostgreSQL"],
     },
     {
-        id: 4,
-        role: "Full Stack Developer ( UI/UX focused)",
+        id: 5,
+        role: "Full Stack Developer (UI/UX focused)",
         company: "Rolom Technologies",
         date: "May 2020 – 2024",
         description:
             "Designed and delivered 20+ full-stack applications using React, Node.js, Python, Express.js, Firebase, and PostgreSQL. Built dashboards, CMS platforms, and data-driven applications while applying UX best practices to increase user interaction by 35%.",
-        tech: ["React", "Express.js", "Firebase", "PostgreSQL, Figma"],
+        tech: ["React", "Express.js", "Firebase", "PostgreSQL", "Figma"],
     },
 ];
 
@@ -95,6 +104,45 @@ export const experiences: Experience[] = [
 export const projects: Project[] = [
     {
         id: 1,
+        slug: "foodhutz",
+        title: "FoodHutz",
+        tagline: "Multi-vendor food ordering, dining reservations, and retail catering platform",
+        category: "Web App",
+        year: "2026",
+        coverImage: "",
+        tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "REST APIs"],
+        liveUrl: "https://newfoodhutzstaging.vercel.app/uk/account",
+        screenshotUrl: "https://newfoodhutzstaging.vercel.app/uk",
+        overview:
+            "FoodHutz is an all-in-one multi-vendor food ordering, table reservation, and retail catering web application. As the Lead Frontend Developer, I spearheaded the frontend architecture, state management, and user interface delivery across diverse services including restaurant food delivery, table bookings, group ordering, and grocery & pharmacy store essentials.",
+        challenge:
+            "The platform required a complex multi-region architecture (supporting the UK and beyond) with dynamic multi-vendor cart flows, real-time table reservations, group ordering sessions, and a unified, responsive account management portal.",
+        solution:
+            "Architected and developed the frontend using Next.js, React, TypeScript, and Tailwind CSS. Built high-performance responsive interfaces, dynamic account portals, seamless booking and ordering workflows, and integrated REST APIs with resilient state management and validation.",
+        outcome:
+            "Successfully delivered and deployed the full frontend for the FoodHutz web application staging platform (live at newfoodhutzstaging.vercel.app), ensuring snappy load times, intuitive user journeys, and robust cross-device compatibility.",
+    },
+    {
+        id: 2,
+        slug: "cava-bar",
+        title: "CAVA Bar",
+        tagline: "Lebanese cave restaurant, wine bar, and table reservation web app in London",
+        category: "Web App",
+        year: "2026",
+        coverImage: "",
+        tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "REST APIs"],
+        liveUrl: "https://cavabar.foodhutz.co.uk/",
+        overview:
+            "CAVA Bar is a bespoke hospitality web application built for a premier Lebanese cave restaurant and wine bar in Olympia, London (under FoodHutz). The application provides an elegant digital storefront featuring real-time table reservations, dynamic food & drinks menus, interactive wine cellar showcases, and customer review management.",
+        challenge:
+            "The venue needed a luxury, atmospheric digital presence matching its underground cave aesthetic while handling peak exhibition traffic, real-time table booking validations with notice periods, opening hours logic, and local West London SEO discoverability.",
+        solution:
+            "Developed a performant Next.js web application utilizing Tailwind CSS, responsive layouts, and structured data schemas. Integrated interactive table booking forms with guest rules, dynamic menu catalog sections, drink curation lists, and Google Maps location integration.",
+        outcome:
+            "Delivered and deployed the live production platform at cavabar.foodhutz.co.uk, driving online table reservations, streamlining guest bookings, and enhancing the venue's digital footprint across West London.",
+    },
+    {
+        id: 3,
         slug: "shopfeedme",
         title: "ShopFeedMe",
         tagline: "Full-featured e-commerce platform built with Next.js",
@@ -113,7 +161,7 @@ export const projects: Project[] = [
             "Delivered a polished, fully responsive storefront live at shopfeedme.com. The component-driven architecture significantly reduced development time for new feature additions.",
     },
     {
-        id: 2,
+        id: 4,
         slug: "yano-schools",
         title: "Yano Schools",
         tagline: "EdTech platform connecting schools, students, and parents",
@@ -132,7 +180,7 @@ export const projects: Project[] = [
             "A live, functional platform serving schools across Nigeria, available at yanoschools.com. The clean, intuitive interface has reduced onboarding friction for both institutional and individual users.",
     },
     {
-        id: 3,
+        id: 5,
         slug: "apple-home-page-clone",
         title: "Apple home page clone",
         tagline: "clone of the Apple home page with all its features and animations",
@@ -148,7 +196,7 @@ export const projects: Project[] = [
             "I was able to successfully replicate the Apple home page with all its features and animations.",
     },
     {
-        id: 4,
+        id: 6,
         slug: "conversion-landing-page",
         title: "Conversional Landing page for Booking Calls with Experts",
         tagline: "Conversion Landing page for Booking Calls with Experts",
@@ -167,7 +215,7 @@ export const projects: Project[] = [
     },
 
     {
-        id: 5,
+        id: 7,
         slug: "fixfinder",
         title: "FixFinder",
         tagline: "Connecting users with verified local artisans in real time",
@@ -186,7 +234,7 @@ export const projects: Project[] = [
             "Delivered a working, deployed platform at fixfinder-cyan.vercel.app. The identity verification layer significantly increased user confidence in provider listings, and real-time chat reduced the friction of booking local services.",
     },
     {
-        id: 6,
+        id: 8,
         slug: "iconiq-music-website",
         title: "Iconiq Music Website",
         tagline: "Music website for Iconiq Music",
@@ -205,7 +253,7 @@ export const projects: Project[] = [
             "Deployed for 1 client, with positive feedback from the client.",
     },
     {
-        id: 7,
+        id: 9,
         slug: "uiux-designs",
         title: "UI/UX Design Collection",
         tagline: "High-fidelity UI/UX designs across 4 projects — built in Figma",
@@ -327,12 +375,28 @@ export function getSkillsByCategory(): Record<string, Skill[]> {
 
 /**
  * Returns the best available cover image URL for a project.
- * Priority: local coverImage → Microlink live screenshot → empty string (show placeholder)
+ * Priority: local coverImage → High-definition automated live screenshot → empty string (show placeholder)
  */
 export function getProjectCoverUrl(project: Project): string {
     if (project.coverImage) return project.coverImage;
-    if (project.liveUrl) {
-        return `https://api.microlink.io/?url=${encodeURIComponent(project.liveUrl)}&screenshot=true&meta=false&embed=screenshot.url`;
+    const targetUrl = project.screenshotUrl || project.liveUrl;
+    if (targetUrl) {
+        // High-definition automated snapshot:
+        // - waitUntil=networkidle0 waits for SPA/Next.js hydration & APIs to complete
+        // - waitForTimeout=3000 ensures client animations and images settle
+        // - viewport: 1440x900 @ 2x pixel density for crisp retina preview
+        const params = new URLSearchParams({
+            url: targetUrl,
+            screenshot: "true",
+            meta: "false",
+            embed: "screenshot.url",
+            waitUntil: "networkidle0",
+            waitForTimeout: "3000",
+            "viewport.width": "1440",
+            "viewport.height": "900",
+            "viewport.deviceScaleFactor": "2",
+        });
+        return `https://api.microlink.io/?${params.toString()}`;
     }
     return "";
 }

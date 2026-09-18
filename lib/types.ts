@@ -42,6 +42,7 @@ export type Project = {
     coverImage: string;     // path relative to /public
     tech: string[];
     liveUrl?: string;
+    screenshotUrl?: string; // custom URL for screenshot preview if different from liveUrl
     githubUrl?: string;
     figmaUrl?: string;      // Figma prototype / design link
     // Case study fields (shown on /projects/[slug])
